@@ -1,0 +1,11 @@
+﻿@page
+@model JekirdekProject.UILayer.Pages.Customers.DetailsModel
+<h2>Customer Details</h2>
+
+<p><strong>First Name:</strong> @Model.Customer.FirstName</p>
+<p><strong>Last Name:</strong> @Model.Customer.LastName</p>
+<p><strong>Email:</strong> @Model.Customer.Email</p>
+<p><strong>Region:</strong> @Model.Customer.Region</p>
+<p><strong>Registration Date:</strong> @Model.Customer.RegistrationDate.ToString("yyyy-MM-dd")</p>
+
+<a asp-page="Index" class="btn btn-primary">Back to List</a>
