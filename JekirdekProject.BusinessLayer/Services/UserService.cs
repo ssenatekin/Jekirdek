@@ -21,7 +21,7 @@ namespace JekirdekProject.BusinessLayer.Services
         public async Task<User> AuthenticateUser(string username, string password)
         {
             var user = await _userRepository.GetUserByUsername(username);
-            if (user == null || user.Password != password) // Normalde şifre hash'lenmelidir!
+            if (user == null || user.Password != password) 
             {
                 return null;
             }

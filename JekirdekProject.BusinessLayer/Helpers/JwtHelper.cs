@@ -18,8 +18,7 @@ public class JwtHelper
     {
         var claims = new[]
         {
-            new Claim(ClaimTypes.Name, username),
-            // İhtiyaç duyduğunuz ek claim'leri buraya ekleyebilirsiniz (örneğin, rol bilgisi)
+            new Claim(ClaimTypes.Name, username),           
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));

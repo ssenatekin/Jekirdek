@@ -21,7 +21,6 @@ namespace JekirdekProject.UILayer.Pages.Customers
         [BindProperty]
         public Customer Customer { get; set; }
 
-        // Get method - Sayfa yüklendiðinde müþteri bilgilerini getirir
         public async Task<IActionResult> OnGetAsync(int id)
         {
             Customer = await _customerService.GetCustomerById(id);
@@ -33,7 +32,6 @@ namespace JekirdekProject.UILayer.Pages.Customers
             return Page();
         }
 
-        // Post method - Silme iþlemi
         public async Task<IActionResult> OnPostAsync(int id)
         {
             var customer = await _customerService.GetCustomerById(id);
@@ -41,10 +39,9 @@ namespace JekirdekProject.UILayer.Pages.Customers
             {           
                 if (customer != null)
                 {
-                    // Silme iþlemi burada yapýlýr
                     await _customerService.DeleteCustomer(id);
                     _logger.LogInformation("Customer {CustomerName} with ID {CustomerId} deleted successfully at {Time}", customer.FirstName + " " + customer.LastName, customer.Id, DateTime.UtcNow);
-                    return RedirectToPage("./Index"); // Silme baþarýlý ise index sayfasýna yönlendir
+                    return RedirectToPage("./Index"); 
                 }
             }
             catch (Exception ex) 

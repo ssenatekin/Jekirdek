@@ -42,8 +42,7 @@ namespace JekirdekProject.BusinessLayer.Services
         {
             var customer = await _repository.GetByIdAsync(id);
             if (customer != null)
-            {
-                //
+            {              
                 await _repository.DeleteAsync(customer.Id);
                 await _repository.SaveAsync();
             }
